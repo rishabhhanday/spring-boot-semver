@@ -1,0 +1,33 @@
+Semantic versioning - Universal agreement for software versioning / software relase versioning system(ref https://semver.org/) 
+
+-------------------------------------------------------INTRO--------------------------------------------------
+
+Given a version number MAJOR.MINOR.PATCH (ex. 5.21.17), increment the:
+
+1. MAJOR version when you make incompatible API changes (Major changes incompatible with previous versions.)
+2. MINOR version when you add functionality in a backwards compatible manner, and (Featured added)
+3. PATCH version when you make backwards compatible bug fixes.
+
+
+example
+5.21.17 -----bug found----> after fix --------> 5.21.18
+5.21.17------new feature added-------> 5.22.0
+5.21.17------api change , breaking the backward compatibility --------6.0.0
+-------------------------------------------------------------------------------------------------------------
+
+Exact version  -       5.21.17  
+Greater than   -      >5.21.17  
+Compatible changes -  ^5.21.17 (can only change MINOR and PATCH) *higher
+Minor-level changes-  ~5.21.8 (can only change PATCH)
+
+example -https://github.com/expressjs/express/blob/master/package.json , https://github.com/babel/babel/blob/master/packages/babel-cli/package.json ,https://semver.npmjs.com/
+example npm i expressjs@^2.0
+------------------------------------Pre release version------------------------------------------------------
+
+1.0.0-alpha  < 1.0.0-alpha.1  < ..... 
+1.0.0-beta < 1.0.0-beta.1 < .....
+1.0.0-beta.11 < 1.0.0-rc.1 < 1.0.0
+  where rc stands for 	release candidate
+
+
+----------------------------------------------------------------------------
