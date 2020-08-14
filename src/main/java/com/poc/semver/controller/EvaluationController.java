@@ -1,4 +1,4 @@
-package com.poc.semver;
+package com.poc.semver.controller;
 
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.ResponseEntity.status;
