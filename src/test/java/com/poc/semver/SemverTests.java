@@ -24,7 +24,9 @@ class SemverTests {
         () -> assertTrue(semver.isGreaterThan("1.2.5-beta")),
         () -> assertThrows(SemverException.class, () -> new Semver("4564654")),
         () -> assertTrue(semver.isGreaterThan("1.2.5-alpha")),
-        () -> assertEquals(MINOR, semver.diff("1.19.8")));
+        () -> assertEquals(MINOR, semver.diff("1.19.8")),
+        () -> assertTrue(new Semver("1.2", NPM).isGreaterThan("1.1.0")),
+        () -> assertThrows(SemverException.class, () -> new Semver("1.2")));
   }
 
   @Test
@@ -41,6 +43,14 @@ class SemverTests {
 
   @Test
   void customSemverTests() {
-    new CustomSemver("1.5.5").isGreaterThan("1.2.2");
+    Semver semver = new CustomSemver("1.2.5");
+
+    assertAll(
+        () -> assertTrue(semver.isEquivalentTo("1.2.5")),
+        () -> assertTrue(semver.isLowerThan("1.19.0")),
+        () -> assertTrue(semver.isGreaterThan("1.2.4")),
+        () -> assertThrows(SemverException.class, () -> new Semver("4564654")),
+        () -> assertTrue(semver.isGreaterThan("1.2.3")),
+        () -> assertEquals(MINOR, semver.diff("1.19.8")));
   }
 }
