@@ -12,6 +12,11 @@ public class CustomSemver extends Semver {
     super(value, NPM);
   }
 
+  /*
+  tokenize the version strings using a dot delimiter, and then compare integer conversion of every
+  String token, beginning from the left. If the token's integer value is the same, examine the next token,
+  continuing this step until we find a difference (or until we reach the last token in either string
+   */
   public int compareVersions(String version1, String version2) {
     int comparisonResult = 0;
 
