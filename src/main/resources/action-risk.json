@@ -1,0 +1,13 @@
+{
+  "semverCheck": {
+    "UPGRADE_VERSION": [
+      "DEVICE_OS_UNSUPPORTED",
+      "INCOMPATIBLE_VERSION"
+    ]
+  },
+  "locationCheck": {
+    "UNSUPPORTED_LOCATION": [
+      "CHANGE_LOCATION"
+    ]
+  }
+}
