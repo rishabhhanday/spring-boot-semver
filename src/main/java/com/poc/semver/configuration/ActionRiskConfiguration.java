@@ -32,11 +32,10 @@ public class ActionRiskConfiguration {
   public VersionRiskEvaluation versionRiskEvaluation(
       Map<String, Map<String, List<String>>> actionRisk) {
     Map<String, List<String>> semverActionRisk = actionRisk.get("semverCheck");
+    Semver semver = new Semver(softposMinVersion);
 
     return (softposVersion -> {
-      Semver semver = new Semver(softposMinVersion);
-
-      if (semver.isGreaterThan(softposVersion)) {
+      if (semver.isLowerThan(softposVersion)) {
         return VersionActionRiskResponse
             .builder()
             .actions(Collections.emptyList())
@@ -49,7 +48,7 @@ public class ActionRiskConfiguration {
 
       semverActionRisk.forEach((risk, actions) -> {
         actionList.add(risk);
-        actionList.addAll(actions);
+        riskList.addAll(actions);
       });
 
       return VersionActionRiskResponse
